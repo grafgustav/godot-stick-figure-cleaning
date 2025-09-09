@@ -24,17 +24,16 @@ func _physics_process(_delta: float) -> void:
 	self.velocity = direction * 200
 	if direction.x < 0:
 		happyFreddy.flip_h = true
-		# %CleanBox.scale = Vector2(-1, 1)
+		equipped_tool.turn_left()
 	elif direction.x > 0:
 		happyFreddy.flip_h = false
-		# %CleanBox.scale = Vector2(1, 1)
+		equipped_tool.turn_right()
 	move_and_slide()
 	
 	var using_tool = Input.is_action_pressed("use_tool")
 	
 	if using_tool:
 		use_tool()
-		cleaning()
 	else:
 		if velocity.length() > 0.0:
 			happyFreddy.play_walk_animation()
@@ -43,10 +42,9 @@ func _physics_process(_delta: float) -> void:
 			
 func use_tool() -> void:
 	var tool_used = equipped_tool.use_tool()
-	#if tool_used:
-		# play animation & clean
 	play_tool_animation(equipped_tool.animation_name)
-		# cleaning()
+	if tool_used:
+		cleaning()
 	
 func play_tool_animation(animation_name) -> void:
 	match animation_name:

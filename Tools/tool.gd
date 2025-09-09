@@ -19,21 +19,23 @@ func _ready() -> void:
 
 # return true if the operation was successful, otherwise false
 func use_tool() -> bool:
+	print(cooldown_timer.time_left)
 	if can_use():
-		activate()
 		start_cooldown()
-		tool_used.emit()
 		return true
 	return false
-		
-func activate() -> void:
-	pass
 	
 func start_cooldown() -> void:
 	cooldown_timer.start()
 	
 func can_use() -> bool:
 	return cooldown_timer.is_stopped()
+	
+func turn_left() -> void:
+	hitbox.scale = Vector2(-1, 1)
+	
+func turn_right() -> void:
+	hitbox.scale = Vector2(1, 1)
 	
 func _on_cooldown_finished() -> void:
 	tool_ready.emit()
