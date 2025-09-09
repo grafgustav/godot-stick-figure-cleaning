@@ -5,6 +5,3 @@
 
 [node name="Broom" instance=ExtResource("1_bibft")]
 script = ExtResource("2_escpa")
-
-[node name="CollisionShape2D" parent="Area2D" index="0"]
-position = Vector2(-9, -14)

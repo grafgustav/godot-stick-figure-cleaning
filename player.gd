@@ -30,7 +30,6 @@ func _physics_process(_delta: float) -> void:
 		# %CleanBox.scale = Vector2(1, 1)
 	move_and_slide()
 	
-func ran():
 	var using_tool = Input.is_action_pressed("use_tool")
 	
 	if using_tool:
@@ -44,10 +43,10 @@ func ran():
 			
 func use_tool() -> void:
 	var tool_used = equipped_tool.use_tool()
-	if tool_used:
+	#if tool_used:
 		# play animation & clean
-		play_tool_animation(equipped_tool.animation_name)
-		cleaning()
+	play_tool_animation(equipped_tool.animation_name)
+		# cleaning()
 	
 func play_tool_animation(animation_name) -> void:
 	match animation_name:

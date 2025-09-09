@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://dg3iq7qvnn3oh"]
+[gd_scene load_steps=12 format=3 uid="uid://dg3iq7qvnn3oh"]
 
 [ext_resource type="Texture2D" uid="uid://dvbcg50kj7ioh" path="res://drawings/StickFigure.png" id="1_4flbx"]
-[ext_resource type="Script" uid="uid://d3l0t00010q8f" path="res://Components/ToolComponent.gd" id="1_onrkg"]
+[ext_resource type="Script" uid="uid://bv6quwpkjxqm1" path="res://player.gd" id="1_onrkg"]
+[ext_resource type="Script" uid="uid://csttc1qkpbs6l" path="res://happy_freddy.gd" id="3_i3pqv"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2hs0m"]
 atlas = ExtResource("1_4flbx")
@@ -76,8 +77,8 @@ script = ExtResource("1_onrkg")
 [node name="HappyFreddy" type="AnimatedSprite2D" parent="."]
 unique_name_in_owner = true
 sprite_frames = SubResource("SpriteFrames_2hs0m")
-animation = &"idle"
-frame_progress = 0.93112
+animation = &"brooming"
+script = ExtResource("3_i3pqv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-4, 13)

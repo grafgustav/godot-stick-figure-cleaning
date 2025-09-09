@@ -7,7 +7,7 @@ extends Node2D
 @export var cooldown_time : float = 1.0
 
 @onready var cooldown_timer : Timer = %CDTimer
-@onready var hitbox : Area2D = $Area2D
+@onready var hitbox : Area2D = $CleanBox
 
 signal tool_used
 signal tool_ready
