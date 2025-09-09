@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://hrpbc48y7tkn"]
+
+[ext_resource type="PackedScene" uid="uid://drm8uk6y2wndh" path="res://Tools/tool.tscn" id="1_3kcqi"]
+
+[node name="Tool" instance=ExtResource("1_3kcqi")]
+tool_name = "vacuum"
+animation_name = "vacuuming"
+cooldown_time = 0.2
+
+[node name="CollisionShape2D" parent="CleanBox" index="0"]
+position = Vector2(13, 1)

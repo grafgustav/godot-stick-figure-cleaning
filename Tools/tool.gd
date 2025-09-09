@@ -19,7 +19,6 @@ func _ready() -> void:
 
 # return true if the operation was successful, otherwise false
 func use_tool() -> bool:
-	print(cooldown_timer.time_left)
 	if can_use():
 		start_cooldown()
 		return true

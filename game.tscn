@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://dga3ncjbycd6s"]
+[gd_scene load_steps=15 format=4 uid="uid://dga3ncjbycd6s"]
 
 [ext_resource type="Script" uid="uid://d2rcsi505l4d2" path="res://game.gd" id="1_7jktm"]
 [ext_resource type="Texture2D" uid="uid://c28x10a3pijgj" path="res://drawings/Tilemap.png" id="1_80nbo"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bhwp40he4ct68" path="res://kacki.tscn" id="3_feb5d"]
 [ext_resource type="Theme" uid="uid://bh7xkfikpwbil" path="res://ui-theme.tres" id="6_eow3j"]
 [ext_resource type="Texture2D" uid="uid://bxb04hjnyovr1" path="res://icon.svg" id="6_ryrav"]
+[ext_resource type="PackedScene" uid="uid://b43gpv6kvf48k" path="res://ui.tscn" id="8_j5wjh"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_e2o6t"]
 texture = ExtResource("1_80nbo")
@@ -195,6 +196,11 @@ layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 32
 text = "0"
+
+[node name="UI" parent="UICanvasLayer" instance=ExtResource("8_j5wjh")]
+unique_name_in_owner = true
+size_flags_horizontal = 0
+size_flags_vertical = 8
 
 [node name="Kacki8" parent="." instance=ExtResource("3_feb5d")]
 position = Vector2(814, 174)

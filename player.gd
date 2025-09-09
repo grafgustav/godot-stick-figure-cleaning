@@ -9,7 +9,7 @@ var equipped_tool : Tool
 var happyFreddy: HappyFreddy
 
 func _ready() -> void:
-	equip_broom()
+	equip_vacuum()
 	happyFreddy = %HappyFreddy
 
 func equip_broom() -> void:
@@ -17,6 +17,13 @@ func equip_broom() -> void:
 		equipped_tool.queue_free()
 	var broom_scene = preload("res://Tools/broom.tscn")
 	equipped_tool = broom_scene.instantiate()
+	add_child(equipped_tool)
+	
+func equip_vacuum() -> void:
+	if equipped_tool:
+		equipped_tool.queue_free()
+	var vacuum_scene = preload("res://Tools/vacuum.tscn")
+	equipped_tool = vacuum_scene.instantiate()
 	add_child(equipped_tool)
 
 func _physics_process(_delta: float) -> void:
@@ -50,6 +57,8 @@ func play_tool_animation(animation_name) -> void:
 	match animation_name:
 		"brooming":
 			happyFreddy.play_brooming_animation()
+		"vacuuming":
+			happyFreddy.play_vacuuming_animation()
 		_:
 			pass
 	

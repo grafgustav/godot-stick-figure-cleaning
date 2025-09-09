@@ -9,3 +9,6 @@ func play_walk_animation():
 
 func play_brooming_animation():
 	self.play("brooming")
+
+func play_vacuuming_animation():
+	self.play("vacuuming")
