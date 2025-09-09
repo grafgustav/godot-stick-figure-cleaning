@@ -1,0 +1,210 @@
+[gd_scene load_steps=14 format=4 uid="uid://dga3ncjbycd6s"]
+
+[ext_resource type="Script" uid="uid://d2rcsi505l4d2" path="res://game.gd" id="1_7jktm"]
+[ext_resource type="Texture2D" uid="uid://c28x10a3pijgj" path="res://drawings/Tilemap.png" id="1_80nbo"]
+[ext_resource type="PackedScene" uid="uid://vnpaxyj7vo04" path="res://door.tscn" id="1_fc0e3"]
+[ext_resource type="PackedScene" uid="uid://dg3iq7qvnn3oh" path="res://player.tscn" id="2_e2o6t"]
+[ext_resource type="PackedScene" uid="uid://bhwp40he4ct68" path="res://kacki.tscn" id="3_feb5d"]
+[ext_resource type="Theme" uid="uid://bh7xkfikpwbil" path="res://ui-theme.tres" id="6_eow3j"]
+[ext_resource type="Texture2D" uid="uid://bxb04hjnyovr1" path="res://icon.svg" id="6_ryrav"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_e2o6t"]
+texture = ExtResource("1_80nbo")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+4:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(5.0945, -8, 8, -8, 8, 8, 8, 8, 5.0945, 8)
+5:0/0 = 0
+5:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, -5.68803, -8, -5.88588, 8, -8, 8)
+6:0/0 = 0
+6:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(5.0945, -8, 8, -8, 8, 8, 8, 8, 5.0945, 8)
+7:0/0 = 0
+7:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, -5.68803, -8, -5.88588, 8, -8, 8)
+0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 8, -8, 4.64935, 8, 4.4515, 8, 8)
+1:1/0 = 0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 8, -8, 4.64935, 8, 4.4515, 8, 8)
+2:1/0 = 0
+2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 8, -8, 4.64935, 8, 4.4515, 8, 8)
+3:1/0 = 0
+3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 8, -8, 4.64935, 8, 4.4515, 8, 8)
+4:1/0 = 0
+4:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(5.0945, -8, 8, -8, 8, 8, 8, 8, 5.0945, 8)
+5:1/0 = 0
+5:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, -5.68803, -8, -5.88588, 8, -8, 8)
+6:1/0 = 0
+6:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(5.0945, -8, 8, -8, 8, 8, 8, 8, 5.0945, 8)
+7:1/0 = 0
+7:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, -5.68803, -8, -5.88588, 8, -8, 8)
+
+[sub_resource type="TileSet" id="TileSet_feb5d"]
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_e2o6t")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ryrav"]
+size = Vector2(410, 226)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7jktm"]
+size = Vector2(189, 224)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eow3j"]
+size = Vector2(129, 160)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j5wjh"]
+size = Vector2(256, 160.5)
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_7jktm")
+
+[node name="Door2" parent="." instance=ExtResource("1_fc0e3")]
+position = Vector2(416, 224)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -1
+follow_viewport_enabled = true
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+offset_left = -30.0
+offset_top = -23.0
+offset_right = 1180.0
+offset_bottom = 673.0
+
+[node name="Layer0" type="TileMapLayer" parent="."]
+use_parent_material = true
+tile_map_data = PackedByteArray("AAAAAAAAAAACAAAAAAAAAAEAAAACAAEAAAABAAAAAAADAAAAAAABAAEAAAADAAEAAAACAAAAAAAAAAAAAAACAAEAAAAAAAEAAAADAAAAAAABAAAAAAADAAEAAAABAAEAAAAEAAAAAAACAAAAAAAEAAEAAAACAAEAAAAFAAAAAAADAAAAAAAFAAEAAAADAAEAAAAGAAAAAAAAAAAAAAAGAAEAAAAAAAEAAAAHAAAAAAABAAAAAAAHAAEAAAABAAEAAAAIAAAAAAACAAAAAAAIAAEAAAACAAEAAAAJAAAAAAADAAAAAAAJAAEAAAADAAEAAAAKAAAAAAAAAAAAAAAKAAEAAAAAAAEAAAALAAAAAAABAAAAAAALAAEAAAABAAEAAAD//wAAAAAEAAAAAAD//wEAAAAEAAEAAAD//wIAAAAEAAAAAAD//wMAAAAGAAAAAAAAAAIAAAAFAAAAAAAAAAMAAAAHAAAAAAD//wQAAAAGAAEAAAD//wUAAAAEAAEAAAAAAAQAAAAHAAEAAAAAAAUAAAAFAAEAAAD//wYAAAAEAAAAAAD//wcAAAAEAAEAAAAAAAYAAAAFAAAAAAAAAAcAAAAFAAEAAAD//wgAAAAEAAAAAAD//wkAAAAEAAEAAAAAAAgAAAAFAAAAAAAAAAkAAAAFAAEAAAD//woAAAAEAAAAAAD//wsAAAAEAAEAAAAAAAoAAAAFAAAAAAAAAAsAAAAFAAEAAAD//wwAAAAEAAAAAAD//w0AAAAEAAEAAAAAAAwAAAAFAAAAAAAAAA0AAAAFAAEAAAD//w4AAAAEAAAAAAD//w8AAAAEAAEAAAAAAA4AAAAFAAAAAAAAAA8AAAAFAAEAAAD//xAAAAAEAAAAAAD//xEAAAAEAAEAAAAAABAAAAAAAAAAAAAAABEAAAAAAAEAAAABABAAAAABAAAAAAABABEAAAABAAEAAAACABAAAAACAAAAAAACABEAAAACAAEAAAADABAAAAADAAAAAAADABEAAAADAAEAAAAEABAAAAAAAAAAAAAEABEAAAAAAAEAAAAFABAAAAABAAAAAAAFABEAAAABAAEAAAAGABAAAAACAAAAAAAGABEAAAACAAEAAAAHABAAAAADAAAAAAAHABEAAAADAAEAAAAIABAAAAAAAAAAAAAIABEAAAAAAAEAAAAJABAAAAABAAAAAAAJABEAAAABAAEAAAAKABAAAAACAAAAAAAKABEAAAACAAEAAAALABAAAAADAAAAAAALABEAAAADAAEAAAAMABAAAAAAAAAAAAAMABEAAAAAAAEAAAANABAAAAABAAAAAAANABEAAAABAAEAAAAOABAAAAACAAAAAAAOABEAAAACAAEAAAAPABAAAAADAAAAAAAPABEAAAADAAEAAAAQABAAAAAAAAAAAAAQABEAAAAAAAEAAAARABAAAAABAAAAAAARABEAAAABAAEAAAASABAAAAACAAAAAAASABEAAAACAAEAAAATABAAAAADAAAAAAATABEAAAADAAEAAAAMAAAAAAACAAAAAAAMAAEAAAACAAEAAAANAAAAAAADAAAAAAANAAEAAAADAAEAAAAOAAAAAAAAAAAAAAAOAAEAAAAAAAEAAAAPAAAAAAABAAAAAAAPAAEAAAABAAEAAAAQAAAAAAACAAAAAAAQAAEAAAACAAEAAAARAAAAAAADAAAAAAARAAEAAAADAAEAAAASAAAAAAAAAAAAAAASAAEAAAAAAAEAAAATAAAAAAABAAAAAAATAAEAAAABAAEAAAAUAAAAAAACAAAAAAAUAAEAAAACAAEAAAAVAAAAAAADAAAAAAAVAAEAAAADAAEAAAAWAAAAAAAAAAAAAAAWAAEAAAAAAAEAAAAXAAAAAAABAAAAAAAXAAEAAAABAAEAAAAYAAAAAAACAAAAAAAYAAEAAAACAAEAAAAZAAAAAAADAAAAAAAZAAEAAAADAAEAAAAUABAAAAAAAAAAAAAUABEAAAAAAAEAAAAVABAAAAABAAAAAAAVABEAAAABAAEAAAAWABAAAAACAAAAAAAWABEAAAACAAEAAAAXABAAAAADAAAAAAAXABEAAAADAAEAAAAYABAAAAAAAAAAAAAYABEAAAAAAAEAAAAZABAAAAABAAAAAAAZABEAAAABAAEAAAAaAAAAAAAAAAAAAAAaAAEAAAAAAAEAAAAZAAIAAAAEAAAAAAAZAAMAAAAEAAEAAAAaAAIAAAAFAAAAAAAaAAMAAAAFAAEAAAAZAAQAAAAEAAAAAAAZAAUAAAAEAAEAAAAaAAQAAAAFAAAAAAAaAAUAAAAFAAEAAAAZAAYAAAAEAAAAAAAZAAcAAAAEAAEAAAAaAAYAAAAFAAAAAAAaAAcAAAAFAAEAAAAZAAgAAAAEAAAAAAAZAAkAAAAEAAEAAAAaAAgAAAAFAAAAAAAaAAkAAAAFAAEAAAAZAAoAAAAEAAAAAAAZAAsAAAAEAAEAAAAaAAoAAAAFAAAAAAAaAAsAAAAFAAEAAAAZAAwAAAAEAAAAAAAaAAwAAAAFAAAAAAAZAA8AAAAEAAEAAAAaAA8AAAAFAAEAAAAaABAAAAAAAAAAAAAaABEAAAAAAAEAAAAbAAAAAAABAAAAAAAbAAEAAAABAAEAAAAcAAAAAAACAAAAAAAcAAEAAAACAAEAAAAdAAAAAAADAAAAAAAdAAEAAAADAAEAAAAeAAAAAAAAAAAAAAAeAAEAAAAAAAEAAAAfAAAAAAABAAAAAAAfAAEAAAABAAEAAAAgAAAAAAACAAAAAAAgAAEAAAACAAEAAAAhAAAAAAADAAAAAAAhAAEAAAADAAEAAAAiAAAAAAAAAAAAAAAiAAEAAAAAAAEAAAAjAAAAAAABAAAAAAAjAAEAAAABAAEAAAAkAAAAAAACAAAAAAAkAAEAAAACAAEAAAAlAAAAAAADAAAAAAAlAAEAAAADAAEAAAAmAAAAAAAFAAAAAAAmAAEAAAAFAAEAAAAlAAIAAAAEAAAAAAAlAAMAAAAEAAEAAAAmAAIAAAAFAAAAAAAmAAMAAAAFAAEAAAAlAAQAAAAEAAAAAAAlAAUAAAAEAAEAAAAmAAQAAAAAAAAAAAAmAAUAAAAAAAEAAAAnAAQAAAABAAAAAAAnAAUAAAABAAEAAAAoAAQAAAACAAAAAAAoAAUAAAACAAEAAAApAAQAAAADAAAAAAApAAUAAAADAAEAAAAqAAQAAAAAAAAAAAAqAAUAAAAAAAEAAAArAAQAAAABAAAAAAArAAUAAAABAAEAAAAsAAQAAAACAAAAAAAsAAUAAAACAAEAAAAtAAQAAAADAAAAAAAtAAUAAAADAAEAAAAuAAQAAAAAAAAAAAAuAAUAAAAAAAEAAAAtAAYAAAAEAAAAAAAtAAcAAAAEAAEAAAAuAAYAAAAFAAAAAAAuAAcAAAAFAAEAAAAtAAgAAAAEAAAAAAAtAAkAAAAEAAEAAAAuAAgAAAAFAAAAAAAuAAkAAAAFAAEAAAAtAAoAAAAEAAAAAAAtAAsAAAAEAAEAAAAuAAoAAAAFAAAAAAAuAAsAAAAFAAEAAAAtAAwAAAAEAAAAAAAtAA0AAAAEAAEAAAAuAAwAAAAFAAAAAAAuAA0AAAAFAAEAAAAtABAAAAADAAAAAAAtABEAAAADAAEAAAAuABAAAAAAAAAAAAAuABEAAAAAAAEAAAAbABAAAAABAAAAAAAbABEAAAABAAEAAAAcABAAAAACAAAAAAAcABEAAAACAAEAAAAdABAAAAADAAAAAAAdABEAAAADAAEAAAAeABAAAAAAAAAAAAAeABEAAAAAAAEAAAAfABAAAAABAAAAAAAfABEAAAABAAEAAAAgABAAAAACAAAAAAAgABEAAAACAAEAAAAhABAAAAADAAAAAAAhABEAAAADAAEAAAAiABAAAAAAAAAAAAAiABEAAAAAAAEAAAAjABAAAAABAAAAAAAjABEAAAABAAEAAAAkABAAAAACAAAAAAAkABEAAAACAAEAAAAlABAAAAADAAAAAAAlABEAAAADAAEAAAAmABAAAAAAAAAAAAAmABEAAAAAAAEAAAAnABAAAAABAAAAAAAnABEAAAABAAEAAAAoABAAAAACAAAAAAAoABEAAAACAAEAAAApABAAAAADAAAAAAApABEAAAADAAEAAAAqABAAAAAAAAAAAAAqABEAAAAAAAEAAAArABAAAAABAAAAAAArABEAAAABAAEAAAAsABAAAAACAAAAAAAsABEAAAACAAEAAAAvAAQAAAABAAAAAAAvAAUAAAABAAEAAAAwAAQAAAACAAAAAAAwAAUAAAACAAEAAAAxAAQAAAADAAAAAAAxAAUAAAADAAEAAAAyAAQAAAAAAAAAAAAyAAUAAAAAAAEAAAAzAAQAAAABAAAAAAAzAAUAAAABAAEAAAA0AAQAAAACAAAAAAA0AAUAAAACAAEAAAA1AAQAAAADAAAAAAA1AAUAAAADAAEAAAA2AAQAAAAAAAAAAAA2AAUAAAAAAAEAAAA3AAQAAAABAAAAAAA3AAUAAAABAAEAAAA4AAQAAAACAAAAAAA4AAUAAAACAAEAAAA5AAQAAAADAAAAAAA5AAUAAAADAAEAAAA6AAQAAAAAAAAAAAA6AAUAAAAAAAEAAAA7AAQAAAABAAAAAAA7AAUAAAABAAEAAAA8AAQAAAACAAAAAAA8AAUAAAACAAEAAAA9AAQAAAADAAAAAAA9AAUAAAADAAEAAAAvABAAAAABAAAAAAAvABEAAAABAAEAAAAwABAAAAACAAAAAAAwABEAAAACAAEAAAAxABAAAAADAAAAAAAxABEAAAADAAEAAAAyABAAAAAAAAAAAAAyABEAAAAAAAEAAAAzABAAAAABAAAAAAAzABEAAAABAAEAAAA0ABAAAAACAAAAAAA0ABEAAAACAAEAAAA1ABAAAAADAAAAAAA1ABEAAAADAAEAAAA2ABAAAAAAAAAAAAA2ABEAAAAAAAEAAAA3ABAAAAABAAAAAAA3ABEAAAABAAEAAAA4ABAAAAACAAAAAAA4ABEAAAACAAEAAAA5ABAAAAADAAAAAAA5ABEAAAADAAEAAAA6ABAAAAAAAAAAAAA6ABEAAAAAAAEAAAA7ABAAAAABAAAAAAA7ABEAAAABAAEAAAA8ABAAAAACAAAAAAA8ABEAAAACAAEAAAA9ABAAAAADAAAAAAA9ABEAAAADAAEAAAA9AAwAAAAEAAAAAAA9AA0AAAAEAAEAAAA+AAwAAAAFAAAAAAA+AA0AAAAFAAEAAAA9AAoAAAAEAAAAAAA9AAsAAAAEAAEAAAA+AAoAAAAFAAAAAAA+AAsAAAAFAAEAAAA9AAgAAAAEAAAAAAA9AAkAAAAEAAEAAAA+AAgAAAAFAAAAAAA+AAkAAAAFAAEAAAA9AAYAAAAEAAAAAAA9AAcAAAAEAAEAAAA+AAYAAAAFAAAAAAA+AAcAAAAFAAEAAAA+AAQAAAAFAAAAAAA+AAUAAAAFAAEAAAA+ABAAAAAFAAAAAAA+ABEAAAAFAAEAAAA=")
+tile_set = SubResource("TileSet_feb5d")
+
+[node name="Kacki" parent="." instance=ExtResource("3_feb5d")]
+position = Vector2(352, 200)
+
+[node name="Kacki2" parent="." instance=ExtResource("3_feb5d")]
+position = Vector2(363, 70)
+
+[node name="Kacki3" parent="." instance=ExtResource("3_feb5d")]
+position = Vector2(45, 216)
+
+[node name="Kacki4" parent="." instance=ExtResource("3_feb5d")]
+position = Vector2(150, 113)
+
+[node name="Kacki5" parent="." instance=ExtResource("3_feb5d")]
+position = Vector2(479, 136)
+
+[node name="Kacki6" parent="." instance=ExtResource("3_feb5d")]
+position = Vector2(658, 202)
+
+[node name="Kacki7" parent="." instance=ExtResource("3_feb5d")]
+position = Vector2(575, 141)
+
+[node name="Door" parent="." instance=ExtResource("1_fc0e3")]
+position = Vector2(736, 240)
+
+[node name="Room1Box" type="Area2D" parent="."]
+collision_layer = 128
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Room1Box"]
+position = Vector2(207, 142)
+shape = SubResource("RectangleShape2D_ryrav")
+
+[node name="Room1HideBox" type="CanvasLayer" parent="."]
+unique_name_in_owner = true
+visible = false
+follow_viewport_enabled = true
+
+[node name="ColorRect" type="ColorRect" parent="Room1HideBox"]
+offset_top = 31.0
+offset_right = 413.0
+offset_bottom = 256.0
+
+[node name="Room2Box" type="Area2D" parent="."]
+collision_layer = 128
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Room2Box"]
+position = Vector2(511.5, 143)
+shape = SubResource("RectangleShape2D_7jktm")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Room2Box"]
+position = Vector2(670.5, 175)
+shape = SubResource("RectangleShape2D_eow3j")
+
+[node name="Room2HideBox" type="CanvasLayer" parent="."]
+unique_name_in_owner = true
+visible = false
+follow_viewport_enabled = true
+
+[node name="ColorRect" type="ColorRect" parent="Room2HideBox"]
+offset_left = 606.0
+offset_top = 94.0
+offset_right = 736.0
+offset_bottom = 256.0
+
+[node name="ColorRect2" type="ColorRect" parent="Room2HideBox"]
+offset_left = 418.0
+offset_top = 30.0
+offset_right = 607.0
+offset_bottom = 257.0
+
+[node name="Room3Box" type="Area2D" parent="."]
+collision_layer = 128
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Room3Box"]
+position = Vector2(864, 175.75)
+shape = SubResource("RectangleShape2D_j5wjh")
+
+[node name="Room3HideBox" type="CanvasLayer" parent="."]
+unique_name_in_owner = true
+visible = false
+follow_viewport_enabled = true
+
+[node name="ColorRect" type="ColorRect" parent="Room3HideBox"]
+offset_left = 737.0
+offset_top = 95.0
+offset_right = 990.0
+offset_bottom = 257.0
+
+[node name="Player" parent="." instance=ExtResource("2_e2o6t")]
+unique_name_in_owner = true
+position = Vector2(18, 54)
+
+[node name="UICanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PanelContainer" type="PanelContainer" parent="UICanvasLayer"]
+offset_left = 1054.0
+offset_top = 5.0
+offset_right = 1121.0
+offset_bottom = 52.0
+theme = ExtResource("6_eow3j")
+
+[node name="MarginContainer" type="MarginContainer" parent="UICanvasLayer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_right = 5
+
+[node name="GridContainer" type="GridContainer" parent="UICanvasLayer/PanelContainer/MarginContainer"]
+layout_mode = 2
+columns = 2
+
+[node name="PointsIcon" type="TextureRect" parent="UICanvasLayer/PanelContainer/MarginContainer/GridContainer"]
+layout_mode = 2
+texture = ExtResource("6_ryrav")
+expand_mode = 2
+
+[node name="PointsLabel" type="Label" parent="UICanvasLayer/PanelContainer/MarginContainer/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+text = "0"
+
+[node name="Kacki8" parent="." instance=ExtResource("3_feb5d")]
+position = Vector2(814, 174)
+
+[node name="Kacki9" parent="." instance=ExtResource("3_feb5d")]
+position = Vector2(926, 138)
+
+[node name="Kacki10" parent="." instance=ExtResource("3_feb5d")]
+position = Vector2(900, 217)
+
+[connection signal="body_entered" from="Room1Box" to="." method="_on_room_1_box_body_entered"]
+[connection signal="body_entered" from="Room2Box" to="." method="_on_room_2_box_body_entered"]
+[connection signal="body_entered" from="Room3Box" to="." method="_on_room_3_box_body_entered"]

@@ -1,0 +1,29 @@
+[gd_resource type="Theme" load_steps=5 format=3 uid="uid://bh7xkfikpwbil"]
+
+[ext_resource type="Texture2D" uid="uid://w465ec0soltf" path="res://drawings/border.png" id="1_3fso6"]
+
+[sub_resource type="SystemFont" id="SystemFont_klf53"]
+font_names = PackedStringArray("Quinn")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gjvkx"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8rk2b"]
+texture = ExtResource("1_3fso6")
+texture_margin_left = 6.0
+texture_margin_top = 6.0
+texture_margin_right = 6.0
+texture_margin_bottom = 6.0
+
+[resource]
+Label/colors/font_color = Color(1, 1, 1, 1)
+Label/colors/font_outline_color = Color(0, 0, 0, 1)
+Label/colors/font_shadow_color = Color(0, 0, 0, 0)
+Label/constants/line_spacing = 3
+Label/constants/outline_size = 0
+Label/constants/shadow_offset_x = 1
+Label/constants/shadow_offset_y = 1
+Label/constants/shadow_outline_size = 1
+Label/font_sizes/font_size = 32
+Label/fonts/font = SubResource("SystemFont_klf53")
+Label/styles/normal = SubResource("StyleBoxEmpty_gjvkx")
+PanelContainer/styles/panel = SubResource("StyleBoxTexture_8rk2b")

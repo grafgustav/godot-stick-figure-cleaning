@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://c6rw6ivqjgtl1"]
+
+[ext_resource type="PackedScene" uid="uid://drm8uk6y2wndh" path="res://Tools/tool.tscn" id="1_bibft"]
+[ext_resource type="Script" uid="uid://ck7x66xs4broy" path="res://Tools/broom.gd" id="2_escpa"]
+
+[node name="Broom" instance=ExtResource("1_bibft")]
+script = ExtResource("2_escpa")
+
+[node name="CollisionShape2D" parent="Area2D" index="0"]
+position = Vector2(-9, -14)
