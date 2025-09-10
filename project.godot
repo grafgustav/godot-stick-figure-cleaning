@@ -15,6 +15,10 @@ run/main_scene="uid://dga3ncjbycd6s"
 config/features=PackedStringArray("4.4", "Mobile")
 config/icon="res://icon.svg"
 
+[autoload]
+
+GlobalStuff="*res://global_stuff.gd"
+
 [global_group]
 
 Player=""

@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=3 uid="uid://f173ycuxmuu2"]
+
+[ext_resource type="Script" uid="uid://b4pip161or3cy" path="res://abstract_deposit_container.gd" id="1_7vflk"]
+
+[node name="AbstractDepositContainer" type="CharacterBody2D"]
+script = ExtResource("1_7vflk")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+
+[node name="ObjectCollision" type="CollisionShape2D" parent="."]
+
+[node name="HitboxArea" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 14
+
+[node name="Hitbox" type="CollisionShape2D" parent="HitboxArea"]
+
+[connection signal="body_entered" from="HitboxArea" to="." method="_on_hitbox_area_body_entered"]
+[connection signal="body_exited" from="HitboxArea" to="." method="_on_hitbox_area_body_exited"]

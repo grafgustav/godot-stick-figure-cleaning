@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://drm8uk6y2wndh" path="res://Tools/tool.tscn" id="1_3kcqi"]
 
-[node name="Tool" instance=ExtResource("1_3kcqi")]
+[node name="Vacuum" instance=ExtResource("1_3kcqi")]
 tool_name = "vacuum"
 animation_name = "vacuuming"
 cooldown_time = 0.2

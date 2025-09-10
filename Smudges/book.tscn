@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://b68wwubekfudv"]
+
+[ext_resource type="PackedScene" uid="uid://cxwqengkh558h" path="res://Smudges/abstract_smudge.tscn" id="1_a8hwp"]
+[ext_resource type="Texture2D" uid="uid://c28x10a3pijgj" path="res://drawings/Tilemap.png" id="2_2bjdm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xx3k2"]
+size = Vector2(28, 29)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eywea"]
+atlas = ExtResource("2_2bjdm")
+region = Rect2(128, 64, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_y071g"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eywea")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Book" instance=ExtResource("1_a8hwp")]
+
+[node name="Hitbox" parent="." index="0"]
+position = Vector2(0, -1.5)
+shape = SubResource("RectangleShape2D_xx3k2")
+
+[node name="Sprite" parent="." index="1"]
+sprite_frames = SubResource("SpriteFrames_y071g")

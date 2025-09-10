@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=4 uid="uid://dga3ncjbycd6s"]
+[gd_scene load_steps=19 format=4 uid="uid://dga3ncjbycd6s"]
 
 [ext_resource type="Script" uid="uid://d2rcsi505l4d2" path="res://game.gd" id="1_7jktm"]
 [ext_resource type="Texture2D" uid="uid://c28x10a3pijgj" path="res://drawings/Tilemap.png" id="1_80nbo"]
@@ -9,7 +9,9 @@
 [ext_resource type="Texture2D" uid="uid://bxb04hjnyovr1" path="res://icon.svg" id="6_ryrav"]
 [ext_resource type="PackedScene" uid="uid://b43gpv6kvf48k" path="res://ui.tscn" id="8_j5wjh"]
 [ext_resource type="PackedScene" uid="uid://drd1ppa8as668" path="res://Smudges/kacki.tscn" id="8_vef74"]
+[ext_resource type="PackedScene" uid="uid://b68wwubekfudv" path="res://Smudges/book.tscn" id="9_mfdv2"]
 [ext_resource type="PackedScene" uid="uid://ctu35fbbiugwo" path="res://Smudges/dust.tscn" id="9_vef74"]
+[ext_resource type="PackedScene" uid="uid://cnaij0mjg5a48" path="res://DepositContainers/general_trashcan.tscn" id="12_iotsf"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_e2o6t"]
 texture = ExtResource("1_80nbo")
@@ -231,6 +233,27 @@ collision_mask = 1
 position = Vector2(134, 177)
 collision_layer = 1
 collision_mask = 1
+
+[node name="Book" parent="." instance=ExtResource("9_mfdv2")]
+position = Vector2(265, 141)
+
+[node name="Book2" parent="." instance=ExtResource("9_mfdv2")]
+position = Vector2(351, 101)
+
+[node name="Book3" parent="." instance=ExtResource("9_mfdv2")]
+position = Vector2(245, 220)
+
+[node name="Book4" parent="." instance=ExtResource("9_mfdv2")]
+position = Vector2(545, 220)
+
+[node name="Book5" parent="." instance=ExtResource("9_mfdv2")]
+position = Vector2(536, 162)
+
+[node name="Book6" parent="." instance=ExtResource("9_mfdv2")]
+position = Vector2(463, 94)
+
+[node name="GeneralTrashcan" parent="." instance=ExtResource("12_iotsf")]
+position = Vector2(401, 48)
 
 [connection signal="body_entered" from="Room1Box" to="." method="_on_room_1_box_body_entered"]
 [connection signal="body_entered" from="Room2Box" to="." method="_on_room_2_box_body_entered"]
