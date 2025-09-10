@@ -3,7 +3,6 @@ extends CharacterBody2D
 
 signal player_points_updated
 
-var player_points = 0
 var equipped_tool : Tool
 var carried_smudge : AbstractSmudge
 
@@ -88,21 +87,12 @@ func play_tool_animation(animation_name) -> void:
 func brooming() -> void:
 		%HappyFreddy.play("brooming")
 
-func update_player_points(add: int):
-	if add > 0:
-		player_points += add
-		player_points_updated.emit()
-	
-func get_player_points() -> int:
-	return player_points
-
 func cleaning():
 	var tool_hitbox : Area2D = equipped_tool.get_node("CleanBox")
 	var collidingSmudges = tool_hitbox.get_overlapping_bodies()
 	for smudge in collidingSmudges:
 		if smudge.has_method("get_cleaned"):
-			var clean_points = smudge.get_cleaned()
-			update_player_points(clean_points)
+			smudge.get_cleaned()
 
 func pick_up():
 	var tool_hitbox : Area2D = equipped_tool.get_node("CleanBox")

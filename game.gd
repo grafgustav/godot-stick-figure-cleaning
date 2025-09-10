@@ -1,10 +1,10 @@
 extends Node2D
 
 func _ready() -> void:
-	%Player.connect("player_points_updated", _on_player_points_updated)
 	%UI.connect("ui_broom_but_pressed", _on_broom_but_pressed)
 	%UI.connect("ui_vacuum_but_pressed", _on_vacuum_but_pressed)
 	%UI.connect("ui_hands_but_pressed", _on_hands_but_pressed)
+	ScoreManager.connect("player_points_updated", _on_player_points_updated)
 
 func _process(_delta: float) -> void:
 	if Input.is_action_pressed("exit_to_menu"):
@@ -39,8 +39,7 @@ func _on_room_3_box_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):
 		showRoom(3)
 
-func _on_player_points_updated() -> void:
-	var player_points = %Player.get_player_points()
+func _on_player_points_updated(player_points : int) -> void:
 	%PointsLabel.text = str(player_points)
 
 func _on_broom_but_pressed() -> void:
