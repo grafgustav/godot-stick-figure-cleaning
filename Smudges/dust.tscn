@@ -1,0 +1,42 @@
+[gd_scene load_steps=7 format=3 uid="uid://ctu35fbbiugwo"]
+
+[ext_resource type="PackedScene" uid="uid://cxwqengkh558h" path="res://Smudges/abstract_smudge.tscn" id="1_f25wj"]
+[ext_resource type="Texture2D" uid="uid://c28x10a3pijgj" path="res://drawings/Tilemap.png" id="2_se6ty"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3sdjc"]
+size = Vector2(30, 31)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7xqk4"]
+atlas = ExtResource("2_se6ty")
+region = Rect2(32, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ht0iw"]
+atlas = ExtResource("2_se6ty")
+region = Rect2(64, 64, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3q4ny"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7xqk4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ht0iw")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[node name="Dust" instance=ExtResource("1_f25wj")]
+hitpoints = 0.5
+points = 0.5
+player_passable = true
+
+[node name="Hitbox" parent="." index="0"]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_3sdjc")
+
+[node name="Sprite" parent="." index="1"]
+sprite_frames = SubResource("SpriteFrames_3q4ny")
+animation = &"idle"

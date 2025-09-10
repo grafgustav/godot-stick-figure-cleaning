@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3 uid="uid://e6vqbb2gfcwq"]
+
+[ext_resource type="PackedScene" uid="uid://cxwqengkh558h" path="res://Smudges/abstract_smudge.tscn" id="1_0vwjs"]
+[ext_resource type="Texture2D" uid="uid://c28x10a3pijgj" path="res://drawings/Tilemap.png" id="2_kntri"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bmwyc"]
+size = Vector2(27, 26)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ijnik"]
+atlas = ExtResource("2_kntri")
+region = Rect2(96, 64, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jxrtq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ijnik")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="TrashPile" instance=ExtResource("1_0vwjs")]
+hitpoints = 10.0
+points = 5.0
+
+[node name="Hitbox" parent="." index="0"]
+position = Vector2(0.5, 4)
+shape = SubResource("RectangleShape2D_bmwyc")
+
+[node name="Sprite" parent="." index="1"]
+sprite_frames = SubResource("SpriteFrames_jxrtq")

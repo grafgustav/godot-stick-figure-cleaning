@@ -1,0 +1,63 @@
+[gd_scene load_steps=10 format=3 uid="uid://drd1ppa8as668"]
+
+[ext_resource type="PackedScene" uid="uid://cxwqengkh558h" path="res://Smudges/abstract_smudge.tscn" id="1_c0xuh"]
+[ext_resource type="Texture2D" uid="uid://c28x10a3pijgj" path="res://drawings/Tilemap.png" id="2_3gho3"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_c0xuh"]
+radius = 13.0384
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dh4of"]
+atlas = ExtResource("2_3gho3")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hkuy7"]
+atlas = ExtResource("2_3gho3")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wtyoa"]
+atlas = ExtResource("2_3gho3")
+region = Rect2(96, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lr7rf"]
+atlas = ExtResource("2_3gho3")
+region = Rect2(128, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0bf2n"]
+atlas = ExtResource("2_3gho3")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hcoxp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dh4of")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hkuy7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wtyoa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lr7rf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0bf2n")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 2.0
+}]
+
+[node name="Kacki" instance=ExtResource("1_c0xuh")]
+hitpoints = 3.0
+points = 2.0
+
+[node name="Hitbox" parent="." index="0"]
+position = Vector2(0, 7)
+shape = SubResource("CircleShape2D_c0xuh")
+
+[node name="Sprite" parent="." index="1"]
+sprite_frames = SubResource("SpriteFrames_hcoxp")
+animation = &"idle"
+frame_progress = 0.788618

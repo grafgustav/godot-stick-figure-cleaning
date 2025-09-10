@@ -4,6 +4,7 @@ func _ready() -> void:
 	%Player.connect("player_points_updated", _on_player_points_updated)
 	%UI.connect("ui_broom_but_pressed", _on_broom_but_pressed)
 	%UI.connect("ui_vacuum_but_pressed", _on_vacuum_but_pressed)
+	%UI.connect("ui_hands_but_pressed", _on_hands_but_pressed)
 
 func _process(_delta: float) -> void:
 	if Input.is_action_pressed("exit_to_menu"):
@@ -47,3 +48,6 @@ func _on_broom_but_pressed() -> void:
 	
 func _on_vacuum_but_pressed() -> void:
 	%Player.equip_vacuum()
+
+func _on_hands_but_pressed() -> void:
+	%Player.equip_hands()

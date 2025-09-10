@@ -12,3 +12,6 @@ func play_brooming_animation():
 
 func play_vacuuming_animation():
 	self.play("vacuuming")
+	
+func play_handling_animation():
+	self.play("handling")

@@ -5,6 +5,7 @@ extends Node2D
 @export var animation_name : String
 @export var cd : float
 @export var cooldown_time : float = 1.0
+@export var picks_up : bool = false
 
 @onready var cooldown_timer : Timer = %CDTimer
 @onready var hitbox : Area2D = $CleanBox
@@ -35,6 +36,9 @@ func turn_left() -> void:
 	
 func turn_right() -> void:
 	hitbox.scale = Vector2(1, 1)
+	
+func tool_picks_up() -> bool:
+	return self.picks_up
 	
 func _on_cooldown_finished() -> void:
 	tool_ready.emit()

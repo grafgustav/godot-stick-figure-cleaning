@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://b43gpv6kvf48k"]
+[gd_scene load_steps=7 format=3 uid="uid://b43gpv6kvf48k"]
 
 [ext_resource type="Script" uid="uid://cm0r4tu40bw0d" path="res://ui.gd" id="1_27fn8"]
 [ext_resource type="Theme" uid="uid://bh7xkfikpwbil" path="res://ui-theme.tres" id="1_m6e0p"]
@@ -6,11 +6,15 @@
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nltto"]
 atlas = ExtResource("2_27fn8")
-region = Rect2(63, 32.508, 28, 32.242)
+region = Rect2(64.025, 96.9023, 26.8148, 30.5446)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ibotj"]
 atlas = ExtResource("2_27fn8")
-region = Rect2(2.06173, 32.3459, 30.4383, 32.5553)
+region = Rect2(34.824, 64.7944, 26.8148, 31.9559)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_27fn8"]
+atlas = ExtResource("2_27fn8")
+region = Rect2(73.6048, 32.9006, 15.4235, 16.1292)
 
 [node name="UI" type="Control"]
 layout_mode = 3
@@ -25,7 +29,7 @@ script = ExtResource("1_27fn8")
 layout_mode = 0
 offset_left = 4.0
 offset_top = 560.0
-offset_right = 139.0
+offset_right = 216.0
 offset_bottom = 644.0
 theme = ExtResource("1_m6e0p")
 
@@ -44,5 +48,12 @@ size_flags_horizontal = 3
 texture_normal = SubResource("AtlasTexture_ibotj")
 stretch_mode = 5
 
+[node name="HandsBut" type="TextureButton" parent="PanelContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture_normal = SubResource("AtlasTexture_27fn8")
+stretch_mode = 5
+
 [connection signal="pressed" from="PanelContainer/HBoxContainer/VacuumBut" to="." method="_on_vacuum_but_pressed"]
 [connection signal="pressed" from="PanelContainer/HBoxContainer/BroomBut" to="." method="_on_broom_but_pressed"]
+[connection signal="pressed" from="PanelContainer/HBoxContainer/HandsBut" to="." method="_on_hands_but_pressed"]
