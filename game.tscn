@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=4 uid="uid://dga3ncjbycd6s"]
+[gd_scene load_steps=20 format=4 uid="uid://dga3ncjbycd6s"]
 
 [ext_resource type="Script" uid="uid://d2rcsi505l4d2" path="res://game.gd" id="1_7jktm"]
 [ext_resource type="Texture2D" uid="uid://c28x10a3pijgj" path="res://drawings/Tilemap.png" id="1_80nbo"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://b68wwubekfudv" path="res://Smudges/book.tscn" id="9_mfdv2"]
 [ext_resource type="PackedScene" uid="uid://ctu35fbbiugwo" path="res://Smudges/dust.tscn" id="9_vef74"]
 [ext_resource type="PackedScene" uid="uid://cnaij0mjg5a48" path="res://DepositContainers/general_trashcan.tscn" id="12_iotsf"]
+[ext_resource type="PackedScene" uid="uid://c3v38h2s5rsec" path="res://DepositContainers/plastic_bin.tscn" id="13_lc2xo"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_e2o6t"]
 texture = ExtResource("1_80nbo")
@@ -260,6 +261,9 @@ position = Vector2(402, 94)
 
 [node name="GeneralTrashcan3" parent="." instance=ExtResource("12_iotsf")]
 position = Vector2(400, 139)
+
+[node name="PlasticBin" parent="." instance=ExtResource("13_lc2xo")]
+position = Vector2(13, 240)
 
 [connection signal="body_entered" from="Room1Box" to="." method="_on_room_1_box_body_entered"]
 [connection signal="body_entered" from="Room2Box" to="." method="_on_room_2_box_body_entered"]

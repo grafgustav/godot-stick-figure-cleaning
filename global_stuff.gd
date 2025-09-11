@@ -5,7 +5,8 @@ extends Node
 enum DepositTypes {
 	GENERAL_TRASH,
 	PLASTIC,
-	BOOKS,BOTTLES
+	BOOKS,
+	BOTTLES
 }
 
 enum SmudgeTypes {
