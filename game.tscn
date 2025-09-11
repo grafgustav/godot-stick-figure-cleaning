@@ -255,6 +255,12 @@ position = Vector2(463, 94)
 [node name="GeneralTrashcan" parent="." instance=ExtResource("12_iotsf")]
 position = Vector2(401, 48)
 
+[node name="GeneralTrashcan2" parent="." instance=ExtResource("12_iotsf")]
+position = Vector2(402, 94)
+
+[node name="GeneralTrashcan3" parent="." instance=ExtResource("12_iotsf")]
+position = Vector2(400, 139)
+
 [connection signal="body_entered" from="Room1Box" to="." method="_on_room_1_box_body_entered"]
 [connection signal="body_entered" from="Room2Box" to="." method="_on_room_2_box_body_entered"]
 [connection signal="body_entered" from="Room3Box" to="." method="_on_room_3_box_body_entered"]

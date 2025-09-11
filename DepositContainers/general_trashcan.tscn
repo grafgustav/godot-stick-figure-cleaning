@@ -38,7 +38,6 @@ radius = 26.3059
 
 [node name="GeneralTrashcan" instance=ExtResource("1_vifmj")]
 collision_layer = 2
-collision_mask = 0
 
 [node name="Sprite" parent="." index="0"]
 position = Vector2(-3, 0)
@@ -52,3 +51,4 @@ shape = SubResource("RectangleShape2D_k2t3e")
 [node name="Hitbox" parent="HitboxArea" index="0"]
 position = Vector2(-1, 0)
 shape = SubResource("CircleShape2D_k2t3e")
+debug_color = Color(0.860737, 0.266141, 0.621414, 0.42)

@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://slw4h0jip6an"]
+
+[ext_resource type="PackedScene" uid="uid://cxwqengkh558h" path="res://Smudges/abstract_smudge.tscn" id="1_4vsbf"]
+
+[node name="PaperPile" instance=ExtResource("1_4vsbf")]
+hitpoints = 10.0
+points = 5.0

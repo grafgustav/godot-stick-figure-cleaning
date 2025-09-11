@@ -1,11 +1,12 @@
 [gd_scene load_steps=2 format=3 uid="uid://qwfph1rmo451"]
 
-[ext_resource type="PackedScene" uid="uid://drm8uk6y2wndh" path="res://Tools/tool.tscn" id="1_y1kgo"]
+[ext_resource type="PackedScene" uid="uid://drm8uk6y2wndh" path="res://Tools/abstract_tool.tscn" id="1_y1kgo"]
 
 [node name="Hands" instance=ExtResource("1_y1kgo")]
 tool_name = "hands"
 animation_name = "handling"
 picks_up = true
+tool_type = 3
 
 [node name="CollisionShape2D" parent="CleanBox" index="0"]
 position = Vector2(13, 0)

@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://b4pip161or3cy" path="res://abstract_deposit_container.gd" id="1_7vflk"]
 
 [node name="AbstractDepositContainer" type="CharacterBody2D"]
+collision_mask = 0
 script = ExtResource("1_7vflk")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
@@ -10,8 +11,8 @@ script = ExtResource("1_7vflk")
 [node name="ObjectCollision" type="CollisionShape2D" parent="."]
 
 [node name="HitboxArea" type="Area2D" parent="."]
-collision_layer = 0
-collision_mask = 14
+collision_layer = 8
+collision_mask = 8
 
 [node name="Hitbox" type="CollisionShape2D" parent="HitboxArea"]
 

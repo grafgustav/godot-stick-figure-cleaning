@@ -1,7 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://c6rw6ivqjgtl1"]
+[gd_scene load_steps=2 format=3 uid="uid://dn7syrg25c8nw"]
 
-[ext_resource type="PackedScene" uid="uid://drm8uk6y2wndh" path="res://Tools/tool.tscn" id="1_bibft"]
-[ext_resource type="Script" uid="uid://ck7x66xs4broy" path="res://Tools/broom.gd" id="2_escpa"]
+[ext_resource type="PackedScene" uid="uid://drm8uk6y2wndh" path="res://Tools/abstract_tool.tscn" id="1_bibft"]
 
 [node name="Broom" instance=ExtResource("1_bibft")]
-script = ExtResource("2_escpa")
+tool_name = "broom"
+animation_name = "brooming"

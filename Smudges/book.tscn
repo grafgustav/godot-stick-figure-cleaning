@@ -3,9 +3,6 @@
 [ext_resource type="PackedScene" uid="uid://cxwqengkh558h" path="res://Smudges/abstract_smudge.tscn" id="1_a8hwp"]
 [ext_resource type="Texture2D" uid="uid://c28x10a3pijgj" path="res://drawings/Tilemap.png" id="2_2bjdm"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_xx3k2"]
-size = Vector2(28, 29)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_eywea"]
 atlas = ExtResource("2_2bjdm")
 region = Rect2(128, 64, 32, 32)
@@ -21,11 +18,16 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a8hwp"]
+size = Vector2(30, 31)
+
 [node name="Book" instance=ExtResource("1_a8hwp")]
+points = 2.0
+smudge_type = 3
 
-[node name="Hitbox" parent="." index="0"]
-position = Vector2(0, -1.5)
-shape = SubResource("RectangleShape2D_xx3k2")
-
-[node name="Sprite" parent="." index="1"]
+[node name="Sprite" parent="." index="0"]
 sprite_frames = SubResource("SpriteFrames_y071g")
+
+[node name="Hitbox" parent="." index="1"]
+position = Vector2(0, -1.5)
+shape = SubResource("RectangleShape2D_a8hwp")

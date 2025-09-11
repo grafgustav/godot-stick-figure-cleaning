@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://hrpbc48y7tkn"]
 
-[ext_resource type="PackedScene" uid="uid://drm8uk6y2wndh" path="res://Tools/tool.tscn" id="1_3kcqi"]
+[ext_resource type="PackedScene" uid="uid://drm8uk6y2wndh" path="res://Tools/abstract_tool.tscn" id="1_3kcqi"]
 
 [node name="Vacuum" instance=ExtResource("1_3kcqi")]
 tool_name = "vacuum"

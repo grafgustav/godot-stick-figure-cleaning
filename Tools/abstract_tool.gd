@@ -1,4 +1,4 @@
-class_name Tool
+class_name AbstractTool
 extends Node2D
 
 @export var tool_name : String
@@ -6,6 +6,7 @@ extends Node2D
 @export var cd : float
 @export var cooldown_time : float = 1.0
 @export var picks_up : bool = false
+@export var tool_type : GlobalStuff.ToolTypes
 
 @onready var cooldown_timer : Timer = %CDTimer
 @onready var hitbox : Area2D = $CleanBox
@@ -39,6 +40,9 @@ func turn_right() -> void:
 	
 func tool_picks_up() -> bool:
 	return self.picks_up
+	
+func get_tool_type() -> GlobalStuff.ToolTypes:
+	return tool_type
 	
 func _on_cooldown_finished() -> void:
 	tool_ready.emit()

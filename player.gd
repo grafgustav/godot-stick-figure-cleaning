@@ -3,7 +3,7 @@ extends CharacterBody2D
 
 signal player_points_updated
 
-var equipped_tool : Tool
+var equipped_tool : AbstractTool
 var carried_smudge : AbstractSmudge
 
 var happyFreddy: HappyFreddy
@@ -66,7 +66,7 @@ func use_tool() -> void:
 	play_tool_animation(equipped_tool.animation_name)
 	if tool_used:
 		if not equipped_tool.tool_picks_up():
-			cleaning()
+			clean()
 		else:
 			if carried_smudge:
 				put_down()
@@ -87,17 +87,31 @@ func play_tool_animation(animation_name) -> void:
 func brooming() -> void:
 		%HappyFreddy.play("brooming")
 
-func cleaning():
+func clean():
 	var tool_hitbox : Area2D = equipped_tool.get_node("CleanBox")
-	var collidingSmudges = tool_hitbox.get_overlapping_bodies()
-	for smudge in collidingSmudges:
-		if smudge.has_method("get_cleaned"):
+	var colliding_bodies = tool_hitbox.get_overlapping_bodies()
+	for c_body in colliding_bodies:
+		if not c_body is AbstractSmudge:
+			break
+		var smudge : AbstractSmudge = c_body
+		## get smudge type
+		var smudge_type = smudge.get_smudge_type()
+		var tool_type = equipped_tool.get_tool_type()
+		## check if smudge type can be cleaned with current tool
+		if GlobalStuff.is_smudge_cleanable_with_tool(smudge_type, tool_type):
 			smudge.get_cleaned()
+		else:
+			print("Not cleanable!!")
 
 func pick_up():
 	var tool_hitbox : Area2D = equipped_tool.get_node("CleanBox")
-	var collidingSmudges = tool_hitbox.get_overlapping_bodies()
-	for smudge in collidingSmudges:
+	var colliding_bodies = tool_hitbox.get_overlapping_bodies()
+	for c_body in colliding_bodies:
+		if not c_body is AbstractSmudge:
+			break
+		var smudge : AbstractSmudge = c_body
+		if not GlobalStuff.is_smudge_cleanable_with_tool(smudge.get_smudge_type(), equipped_tool.get_tool_type()):
+			break
 		smudge.collision_layer &= ~2
 		smudge.reparent(self)
 		smudge.position = Vector2(10,0)
@@ -109,6 +123,12 @@ func put_down():
 		return
 	var parent = self.get_parent()
 	carried_smudge.reparent(parent)
+	# put the smudge onto a deposit
+	if carried_smudge.collides_with_deposit():
+		carried_smudge.get_deposited()
+		carried_smudge = null
+		return
+	# put the smudge somewhere
 	if not carried_smudge.player_passable:
 		carried_smudge.collision_layer |= 2
 	carried_smudge = null

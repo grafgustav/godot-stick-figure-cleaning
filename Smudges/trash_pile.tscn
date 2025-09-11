@@ -3,9 +3,6 @@
 [ext_resource type="PackedScene" uid="uid://cxwqengkh558h" path="res://Smudges/abstract_smudge.tscn" id="1_0vwjs"]
 [ext_resource type="Texture2D" uid="uid://c28x10a3pijgj" path="res://drawings/Tilemap.png" id="2_kntri"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_bmwyc"]
-size = Vector2(27, 26)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_ijnik"]
 atlas = ExtResource("2_kntri")
 region = Rect2(96, 64, 32, 32)
@@ -21,13 +18,17 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bmwyc"]
+size = Vector2(27, 26)
+
 [node name="TrashPile" instance=ExtResource("1_0vwjs")]
 hitpoints = 10.0
 points = 5.0
+smudge_type = 3
 
-[node name="Hitbox" parent="." index="0"]
+[node name="Sprite" parent="." index="0"]
+sprite_frames = SubResource("SpriteFrames_jxrtq")
+
+[node name="Hitbox" parent="." index="1"]
 position = Vector2(0.5, 4)
 shape = SubResource("RectangleShape2D_bmwyc")
-
-[node name="Sprite" parent="." index="1"]
-sprite_frames = SubResource("SpriteFrames_jxrtq")
