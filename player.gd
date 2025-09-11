@@ -94,14 +94,8 @@ func clean():
 		if not c_body is AbstractSmudge:
 			break
 		var smudge : AbstractSmudge = c_body
-		## get smudge type
-		var smudge_type = smudge.get_smudge_type()
-		var tool_type = equipped_tool.get_tool_type()
-		## check if smudge type can be cleaned with current tool
-		if GlobalStuff.is_smudge_cleanable_with_tool(smudge_type, tool_type):
+		if GlobalStuff.is_smudge_cleanable_with_tool(smudge.get_smudge_type(), equipped_tool.get_tool_type()):
 			smudge.get_cleaned()
-		else:
-			print("Not cleanable!!")
 
 func pick_up():
 	var tool_hitbox : Area2D = equipped_tool.get_node("CleanBox")
