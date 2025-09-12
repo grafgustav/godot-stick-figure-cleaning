@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cx3h6u3ipt1va"]
+
+[ext_resource type="PackedScene" uid="uid://drm8uk6y2wndh" path="res://Tools/abstract_tool.tscn" id="1_u3e27"]
+
+[node name="Mop" instance=ExtResource("1_u3e27")]
+tool_name = "Mop"
+animation_name = "mopping"
+tool_type = 1

@@ -4,6 +4,8 @@ func _ready() -> void:
 	%UI.connect("ui_broom_but_pressed", _on_broom_but_pressed)
 	%UI.connect("ui_vacuum_but_pressed", _on_vacuum_but_pressed)
 	%UI.connect("ui_hands_but_pressed", _on_hands_but_pressed)
+	%UI.connect("ui_mop_but_pressed", _on_mop_but_pressed)
+	%UI.connect("ui_tile_machine_but_pressed", _on_tile_machine_but_pressed)
 	ScoreManager.connect("player_points_updated", _on_player_points_updated)
 
 func _process(_delta: float) -> void:
@@ -50,3 +52,9 @@ func _on_vacuum_but_pressed() -> void:
 
 func _on_hands_but_pressed() -> void:
 	%Player.equip_hands()
+	
+func _on_mop_but_pressed() -> void:
+	%Player.equip_mop()
+
+func _on_tile_machine_but_pressed() -> void:
+	%Player.equip_tile_machine()

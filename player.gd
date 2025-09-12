@@ -32,6 +32,20 @@ func equip_hands() -> void:
 	var hands_scene = preload("res://Tools/hands.tscn")
 	equipped_tool = hands_scene.instantiate()
 	add_child(equipped_tool)
+	
+func equip_mop() -> void:
+	if equipped_tool:
+		equipped_tool.queue_free()
+	var mop_scene = preload("res://Tools/mop.tscn")
+	equipped_tool = mop_scene.instantiate()
+	add_child(equipped_tool)
+	
+func equip_tile_machine() -> void:
+	if equipped_tool:
+		equipped_tool.queue_free()
+	var tile_machine_scene = preload("res://Tools/tile_floor_cleaner.tscn")
+	equipped_tool = tile_machine_scene.instantiate()
+	add_child(equipped_tool)
 
 func _physics_process(_delta: float) -> void:
 	var direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
@@ -81,11 +95,12 @@ func play_tool_animation(animation_name) -> void:
 			happyFreddy.play_vacuuming_animation()
 		"handling":
 			happyFreddy.play_handling_animation()
+		"tile_machining":
+			happyFreddy.play_tile_machining()
+		"mopping":
+			happyFreddy.play_mopping()
 		_:
-			pass
-	
-func brooming() -> void:
-		%HappyFreddy.play("brooming")
+			print("Animation not found")
 
 func clean():
 	var tool_hitbox : Area2D = equipped_tool.get_node("CleanBox")

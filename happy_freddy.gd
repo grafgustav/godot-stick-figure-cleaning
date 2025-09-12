@@ -2,16 +2,22 @@ class_name HappyFreddy
 extends AnimatedSprite2D
 
 func play_idle_animation():
-	self.play("idle")
+	play("idle")
 
 func play_walk_animation():
-	self.play("walk")
+	play("walk")
 
 func play_brooming_animation():
-	self.play("brooming")
+	play("brooming")
 
 func play_vacuuming_animation():
-	self.play("vacuuming")
+	play("vacuuming")
 	
 func play_handling_animation():
-	self.play("handling")
+	play("handling")
+
+func play_tile_machining():
+	play("tile_machining")
+
+func play_mopping():
+	play("mopping")
