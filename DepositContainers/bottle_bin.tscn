@@ -1,0 +1,50 @@
+[gd_scene load_steps=8 format=3 uid="uid://cbd0wewedsjgo"]
+
+[ext_resource type="PackedScene" uid="uid://f173ycuxmuu2" path="res://DepositContainers/abstract_deposit_container.tscn" id="1_8sqer"]
+[ext_resource type="Texture2D" uid="uid://d3n34mjkho5qa" path="res://drawings/Deposits.png" id="2_04f31"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_36ecu"]
+atlas = ExtResource("2_04f31")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_citdv"]
+atlas = ExtResource("2_04f31")
+region = Rect2(32, 64, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6w84t"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_36ecu")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_citdv")
+}],
+"loop": true,
+"name": &"open",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8sqer"]
+size = Vector2(27, 32)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_04f31"]
+radius = 30.0666
+
+[node name="BottleBin" instance=ExtResource("1_8sqer")]
+
+[node name="Sprite" parent="." index="0"]
+sprite_frames = SubResource("SpriteFrames_6w84t")
+animation = &"open"
+
+[node name="ObjectCollision" parent="." index="1"]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_8sqer")
+
+[node name="Hitbox" parent="HitboxArea" index="0"]
+shape = SubResource("CircleShape2D_04f31")

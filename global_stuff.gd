@@ -35,3 +35,11 @@ func is_smudge_cleanable_with_tool(smudge: SmudgeTypes, tool: ToolTypes) -> bool
 	if CLEAN_MAPPING[tool].has(smudge):
 		return true
 	return false
+
+## constants
+## tools
+const BROOM := "res://Tools/broom.tscn"
+const HANDS := "res://Tools/hands.tscn"
+const MOP := "res://Tools/mop.tscn"
+const TILE_MACHINE := "res://Tools/tile_floor_cleaner.tscn"
+const VACUUM := "res://Tools/vacuum.tscn"

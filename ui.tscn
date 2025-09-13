@@ -18,11 +18,11 @@ region = Rect2(73.6048, 32.9006, 15.4235, 16.1292)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_n5ude"]
 atlas = ExtResource("2_27fn8")
-region = Rect2(11.1517, 104.976, 18.9223, 24)
+region = Rect2(45.8572, 138.459, 19.8519, 22.963)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_y4yjw"]
 atlas = ExtResource("2_27fn8")
-region = Rect2(14.5028, 133.906, 21.3333, 25.9259)
+region = Rect2(47.84, 167.578, 19.1111, 25.037)
 
 [node name="UI" type="Control"]
 layout_mode = 3

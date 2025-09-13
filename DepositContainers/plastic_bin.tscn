@@ -3,19 +3,19 @@
 [ext_resource type="PackedScene" uid="uid://f173ycuxmuu2" path="res://DepositContainers/abstract_deposit_container.tscn" id="1_kuuly"]
 [ext_resource type="Texture2D" uid="uid://d3n34mjkho5qa" path="res://drawings/Deposits.png" id="2_h0je3"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_h0je3"]
+atlas = ExtResource("2_h0je3")
+region = Rect2(0, 32, 32, 32)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_ik2cw"]
 atlas = ExtResource("2_h0je3")
-region = Rect2(0, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_4j8jr"]
-atlas = ExtResource("2_h0je3")
-region = Rect2(32, 0, 32, 32)
+region = Rect2(32, 32, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_trc2a"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ik2cw")
+"texture": SubResource("AtlasTexture_h0je3")
 }],
 "loop": true,
 "name": &"idle",
@@ -23,7 +23,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_4j8jr")
+"texture": SubResource("AtlasTexture_ik2cw")
 }],
 "loop": true,
 "name": &"open",
@@ -43,7 +43,7 @@ deposit_type = 1
 modulate = Color(0.612047, 0.997133, 0.831554, 1)
 self_modulate = Color(0.518898, 0.995748, 0.85212, 1)
 sprite_frames = SubResource("SpriteFrames_trc2a")
-animation = &"idle"
+animation = &"open"
 
 [node name="ObjectCollision" parent="." index="1"]
 position = Vector2(2, 0)

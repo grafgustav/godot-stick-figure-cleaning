@@ -256,12 +256,6 @@ position = Vector2(463, 94)
 [node name="GeneralTrashcan" parent="." instance=ExtResource("12_iotsf")]
 position = Vector2(401, 48)
 
-[node name="GeneralTrashcan2" parent="." instance=ExtResource("12_iotsf")]
-position = Vector2(402, 94)
-
-[node name="GeneralTrashcan3" parent="." instance=ExtResource("12_iotsf")]
-position = Vector2(400, 139)
-
 [node name="PlasticBin" parent="." instance=ExtResource("13_lc2xo")]
 position = Vector2(13, 240)
 

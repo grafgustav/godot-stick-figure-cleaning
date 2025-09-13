@@ -7,10 +7,18 @@ var equipped_tool : AbstractTool
 var carried_smudge : AbstractSmudge
 
 var happyFreddy: HappyFreddy
+var turned_right: bool
 
 func _ready() -> void:
 	equip_vacuum()
 	happyFreddy = %HappyFreddy
+	
+func equip_tool(tool_name : String) -> void:
+	if equipped_tool:
+		equipped_tool.queue_free()
+	var tool_scene = load(tool_name)
+	equipped_tool = tool_scene.instantiate()
+	add_child(equipped_tool)
 
 func equip_broom() -> void:
 	if equipped_tool:
@@ -49,14 +57,16 @@ func equip_tile_machine() -> void:
 
 func _physics_process(_delta: float) -> void:
 	var direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
-	self.velocity = direction * 200
+	velocity = direction * 200
 	if direction.x < 0:
 		happyFreddy.flip_h = true
+		turned_right = false
 		equipped_tool.turn_left()
 		if carried_smudge:
 			carried_smudge.position = Vector2(-10,0)
 	elif direction.x > 0:
 		happyFreddy.flip_h = false
+		turned_right = true
 		equipped_tool.turn_right()
 		if carried_smudge:
 			carried_smudge.position = Vector2(10,0)
@@ -123,20 +133,24 @@ func pick_up():
 			break
 		smudge.collision_layer &= ~2
 		smudge.reparent(self)
-		smudge.position = Vector2(10,0)
+		if turned_right:
+			smudge.position = Vector2(10,0)
+		else:
+			smudge.position = Vector2(-10,0)
 		self.carried_smudge = smudge
 
 func put_down():
 	if not carried_smudge:
 		print("No smudge carried!")
 		return
-	var parent = self.get_parent()
-	carried_smudge.reparent(parent)
 	# put the smudge onto a deposit
 	if carried_smudge.collides_with_deposit():
 		carried_smudge.get_deposited()
 		carried_smudge = null
 		return
+	else:
+		var parent = self.get_parent()
+		carried_smudge.reparent(parent)
 	# put the smudge somewhere
 	if not carried_smudge.player_passable:
 		carried_smudge.collision_layer |= 2

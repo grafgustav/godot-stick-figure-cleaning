@@ -40,7 +40,7 @@ func get_cleaned() -> void:
 		_destroy_smudge()
 
 func collides_with_deposit() -> bool:
-	return is_in_deposit_area == 0
+	return (is_in_deposit_area > 0)
 
 func get_deposited() -> void:
 	_destroy_smudge()
@@ -62,8 +62,10 @@ func _on_detection_area_area_entered(area: Area2D) -> void:
 	var parent = area.get_parent()
 	if parent is AbstractDepositContainer:
 		is_in_deposit_area += 1
+		print(is_in_deposit_area)
 
 func _on_detection_area_area_exited(area: Area2D) -> void:
 	var parent = area.get_parent()
 	if parent is AbstractDepositContainer:
 		is_in_deposit_area -= 1
+		print(is_in_deposit_area)
