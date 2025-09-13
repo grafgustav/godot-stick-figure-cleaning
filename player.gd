@@ -150,6 +150,7 @@ func put_down():
 		return
 	else:
 		var parent = self.get_parent()
+		carried_smudge.position *= Vector2(2.5,0)
 		carried_smudge.reparent(parent)
 	# put the smudge somewhere
 	if not carried_smudge.player_passable:

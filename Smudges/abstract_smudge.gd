@@ -62,10 +62,8 @@ func _on_detection_area_area_entered(area: Area2D) -> void:
 	var parent = area.get_parent()
 	if parent is AbstractDepositContainer:
 		is_in_deposit_area += 1
-		print(is_in_deposit_area)
 
 func _on_detection_area_area_exited(area: Area2D) -> void:
 	var parent = area.get_parent()
 	if parent is AbstractDepositContainer:
 		is_in_deposit_area -= 1
-		print(is_in_deposit_area)
