@@ -10,49 +10,15 @@ var happyFreddy: HappyFreddy
 var turned_right: bool
 
 func _ready() -> void:
-	equip_vacuum()
+	equip_tool(GlobalStuff.HANDS)
 	happyFreddy = %HappyFreddy
+	ToolManager.register_player(self)
 	
 func equip_tool(tool_name : String) -> void:
 	if equipped_tool:
 		equipped_tool.queue_free()
 	var tool_scene = load(tool_name)
 	equipped_tool = tool_scene.instantiate()
-	add_child(equipped_tool)
-
-func equip_broom() -> void:
-	if equipped_tool:
-		equipped_tool.queue_free()
-	var broom_scene = preload("res://Tools/broom.tscn")
-	equipped_tool = broom_scene.instantiate()
-	add_child(equipped_tool)
-	
-func equip_vacuum() -> void:
-	if equipped_tool:
-		equipped_tool.queue_free()
-	var vacuum_scene = preload("res://Tools/vacuum.tscn")
-	equipped_tool = vacuum_scene.instantiate()
-	add_child(equipped_tool)
-	
-func equip_hands() -> void:
-	if equipped_tool:
-		equipped_tool.queue_free()
-	var hands_scene = preload("res://Tools/hands.tscn")
-	equipped_tool = hands_scene.instantiate()
-	add_child(equipped_tool)
-	
-func equip_mop() -> void:
-	if equipped_tool:
-		equipped_tool.queue_free()
-	var mop_scene = preload("res://Tools/mop.tscn")
-	equipped_tool = mop_scene.instantiate()
-	add_child(equipped_tool)
-	
-func equip_tile_machine() -> void:
-	if equipped_tool:
-		equipped_tool.queue_free()
-	var tile_machine_scene = preload("res://Tools/tile_floor_cleaner.tscn")
-	equipped_tool = tile_machine_scene.instantiate()
 	add_child(equipped_tool)
 
 func _physics_process(_delta: float) -> void:

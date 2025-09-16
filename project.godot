@@ -19,10 +19,12 @@ config/icon="res://icon.svg"
 
 GlobalStuff="*res://global_stuff.gd"
 ScoreManager="*res://Managers/ScoreManager.gd"
+ToolManager="*res://Managers/ToolManager.gd"
 
 [global_group]
 
 Player=""
+UI=""
 
 [input]
 

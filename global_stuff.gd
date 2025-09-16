@@ -36,15 +36,22 @@ func is_smudge_cleanable_with_tool(smudge: SmudgeTypes, tool: ToolTypes) -> bool
 		return true
 	return false
 
-## constants
+## CONSTANTS
 ## tools
-const BROOM := "res://Tools/broom.tscn"
+## items
 const HANDS := "res://Tools/hands.tscn"
+## dry
+const BROOM := "res://Tools/broom.tscn"
+const VACUUM := "res://Tools/vacuum.tscn"
+## wet
 const MOP := "res://Tools/mop.tscn"
 const TILE_MACHINE := "res://Tools/tile_floor_cleaner.tscn"
-const VACUUM := "res://Tools/vacuum.tscn"
 
-## levels
+## LEVELS
 const LEVELS = {
 	1: "res://Levels/level1.tscn"
 }
+
+## MISC
+const PLAYER_GROUP := "Player"
+const UI_GROUP := "UI"

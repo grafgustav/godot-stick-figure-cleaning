@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://b43gpv6kvf48k"]
+[gd_scene load_steps=10 format=3 uid="uid://b43gpv6kvf48k"]
 
 [ext_resource type="Script" uid="uid://cm0r4tu40bw0d" path="res://ui.gd" id="1_27fn8"]
 [ext_resource type="Theme" uid="uid://bh7xkfikpwbil" path="res://ui-theme.tres" id="1_m6e0p"]
 [ext_resource type="Texture2D" uid="uid://dvbcg50kj7ioh" path="res://drawings/StickFigure.png" id="2_27fn8"]
+[ext_resource type="Script" uid="uid://htk6arow4cbr" path="res://tool_button.gd" id="4_nltto"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nltto"]
 atlas = ExtResource("2_27fn8")
@@ -12,10 +13,6 @@ region = Rect2(64.025, 96.9023, 26.8148, 30.5446)
 atlas = ExtResource("2_27fn8")
 region = Rect2(34.824, 64.7944, 26.8148, 31.9559)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_27fn8"]
-atlas = ExtResource("2_27fn8")
-region = Rect2(73.6048, 32.9006, 15.4235, 16.1292)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_n5ude"]
 atlas = ExtResource("2_27fn8")
 region = Rect2(45.8572, 138.459, 19.8519, 22.963)
@@ -24,7 +21,11 @@ region = Rect2(45.8572, 138.459, 19.8519, 22.963)
 atlas = ExtResource("2_27fn8")
 region = Rect2(47.84, 167.578, 19.1111, 25.037)
 
-[node name="UI" type="Control"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_waa4j"]
+atlas = ExtResource("2_27fn8")
+region = Rect2(34.6638, 32.9026, 21.697, 31.8637)
+
+[node name="UI" type="Control" groups=["UI"]]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -56,12 +57,6 @@ size_flags_horizontal = 3
 texture_normal = SubResource("AtlasTexture_ibotj")
 stretch_mode = 5
 
-[node name="HandsBut" type="TextureButton" parent="PanelContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-texture_normal = SubResource("AtlasTexture_27fn8")
-stretch_mode = 5
-
 [node name="MopBut" type="TextureButton" parent="PanelContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
@@ -74,8 +69,17 @@ size_flags_horizontal = 3
 texture_normal = SubResource("AtlasTexture_y4yjw")
 stretch_mode = 5
 
+[node name="HandsBut" type="TextureButton" parent="PanelContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture_normal = SubResource("AtlasTexture_waa4j")
+stretch_mode = 5
+script = ExtResource("4_nltto")
+tool_name = "hands"
+metadata/_custom_type_script = "uid://htk6arow4cbr"
+
 [connection signal="pressed" from="PanelContainer/HBoxContainer/VacuumBut" to="." method="_on_vacuum_but_pressed"]
 [connection signal="pressed" from="PanelContainer/HBoxContainer/BroomBut" to="." method="_on_broom_but_pressed"]
-[connection signal="pressed" from="PanelContainer/HBoxContainer/HandsBut" to="." method="_on_hands_but_pressed"]
 [connection signal="pressed" from="PanelContainer/HBoxContainer/MopBut" to="." method="_on_mop_but_pressed"]
 [connection signal="pressed" from="PanelContainer/HBoxContainer/TileMachineBut" to="." method="_on_tile_machine_but_pressed"]
+[connection signal="pressed" from="PanelContainer/HBoxContainer/HandsBut" to="." method="_on_hands_but_pressed"]
