@@ -43,3 +43,8 @@ const HANDS := "res://Tools/hands.tscn"
 const MOP := "res://Tools/mop.tscn"
 const TILE_MACHINE := "res://Tools/tile_floor_cleaner.tscn"
 const VACUUM := "res://Tools/vacuum.tscn"
+
+## levels
+const LEVELS = {
+	1: "res://Levels/level1.tscn"
+}

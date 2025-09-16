@@ -1,0 +1,67 @@
+[gd_scene load_steps=7 format=4 uid="uid://bim763gwsx0xj"]
+
+[ext_resource type="Script" uid="uid://dfsyij1u4g03w" path="res://village.gd" id="1_jak2h"]
+[ext_resource type="Texture2D" uid="uid://b285gii3eudvl" path="res://drawings/village.png" id="1_pxdql"]
+[ext_resource type="PackedScene" uid="uid://dg3iq7qvnn3oh" path="res://player.tscn" id="2_qyljj"]
+[ext_resource type="PackedScene" uid="uid://s1m0defmmid3" path="res://level_collision_area.tscn" id="5_6t5gs"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jak2h"]
+texture = ExtResource("1_pxdql")
+2:2/size_in_atlas = Vector2i(3, 3)
+2:2/0 = 0
+2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-15.2911, 2.77281, 14.5963, 2.77281, 15.8481, 22.4891, -15.604, 23.7409)
+5:2/size_in_atlas = Vector2i(3, 3)
+5:2/0 = 0
+5:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-14.3437, 6.89291, 14.5416, 6.79399, 14.4427, 23.8086, -14.3437, 23.4129)
+8:0/size_in_atlas = Vector2i(4, 5)
+8:0/0 = 0
+8:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-27.2886, 39.4429, 27.8956, 39.6154, 27.5507, 11.3335, -27.6335, 10.6437)
+0:5/size_in_atlas = Vector2i(2, 2)
+0:5/0 = 0
+2:5/size_in_atlas = Vector2i(2, 2)
+2:5/0 = 0
+4:5/size_in_atlas = Vector2i(2, 2)
+4:5/0 = 0
+4:7/size_in_atlas = Vector2i(2, 2)
+4:7/0 = 0
+2:7/size_in_atlas = Vector2i(2, 2)
+2:7/0 = 0
+0:7/size_in_atlas = Vector2i(2, 2)
+0:7/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_wybox"]
+physics_layer_0/collision_layer = 1
+physics_layer_0/collision_mask = 0
+sources/0 = SubResource("TileSetAtlasSource_jak2h")
+
+[node name="Village" type="Node2D"]
+script = ExtResource("1_jak2h")
+
+[node name="WhiteBackground" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="ColorRect" type="ColorRect" parent="WhiteBackground"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAAHAAgAAAACAAUAAAAJAAgAAAACAAUAAAALAAgAAAACAAUAAAANAAgAAAAEAAUAAAANAAoAAAAAAAcAAAAPAAoAAAACAAcAAAARAAoAAAACAAcAAAATAAoAAAACAAcAAAAVAAoAAAAEAAcAAAAVAAgAAAAAAAUAAAAXAAgAAAACAAUAAAARAAYAAAAIAAAAAAAMAAUAAAAFAAIAAAAIAAUAAAACAAIAAAAFAAgAAAAAAAUAAAA=")
+tile_set = SubResource("TileSet_wybox")
+
+[node name="Player" parent="." instance=ExtResource("2_qyljj")]
+position = Vector2(135, 119)
+collision_mask = 3
+
+[node name="LevelCollisionArea" parent="." instance=ExtResource("5_6t5gs")]
+position = Vector2(200, 108)
+level_number = 1
+
+[node name="LevelCollisionArea2" parent="." instance=ExtResource("5_6t5gs")]
+position = Vector2(280, 140)
+level_number = 2
+
+[node name="LevelCollisionArea3" parent="." instance=ExtResource("5_6t5gs")]
+position = Vector2(137, 105)
