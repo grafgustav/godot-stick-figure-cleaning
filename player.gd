@@ -8,7 +8,6 @@ var happyFreddy: HappyFreddy
 var turned_right: bool
 
 func _ready() -> void:
-	equip_tool(GlobalStuff.HANDS)
 	happyFreddy = %HappyFreddy
 	ToolManager.register_player(self)
 	
@@ -25,13 +24,15 @@ func _physics_process(_delta: float) -> void:
 	if direction.x < 0:
 		happyFreddy.flip_h = true
 		turned_right = false
-		equipped_tool.turn_left()
+		if equipped_tool:
+			equipped_tool.turn_left()
 		if carried_smudge:
 			carried_smudge.position = Vector2(-10,0)
 	elif direction.x > 0:
 		happyFreddy.flip_h = false
 		turned_right = true
-		equipped_tool.turn_right()
+		if equipped_tool:
+			equipped_tool.turn_right()
 		if carried_smudge:
 			carried_smudge.position = Vector2(10,0)
 	move_and_slide()
@@ -50,6 +51,8 @@ func _physics_process(_delta: float) -> void:
 			happyFreddy.play_idle_animation()
 			
 func use_tool() -> void:
+	if not equipped_tool:
+		return
 	var tool_used = equipped_tool.use_tool()
 	play_tool_animation(equipped_tool.animation_name)
 	if tool_used:
@@ -77,6 +80,8 @@ func play_tool_animation(animation_name) -> void:
 			print("Animation not found")
 
 func clean():
+	if not equipped_tool:
+		return
 	var tool_hitbox : Area2D = equipped_tool.get_node("CleanBox")
 	var colliding_bodies = tool_hitbox.get_overlapping_bodies()
 	for c_body in colliding_bodies:
@@ -87,6 +92,8 @@ func clean():
 			smudge.get_cleaned()
 
 func pick_up():
+	if not equipped_tool:
+		return
 	var tool_hitbox : Area2D = equipped_tool.get_node("CleanBox")
 	var colliding_bodies = tool_hitbox.get_overlapping_bodies()
 	for c_body in colliding_bodies:

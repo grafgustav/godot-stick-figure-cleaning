@@ -22,7 +22,6 @@ func cancel_dialog() -> void:
 		overlay.queue_free()
 	
 func switch_scene_to_level(level_number : int) -> void:
-	print("Switching scene?")
 	get_tree().paused = false
 	var level_file : String
 	if GlobalStuff.LEVEL_DATA.has(level_number):
