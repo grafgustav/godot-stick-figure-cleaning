@@ -1,0 +1,102 @@
+[gd_scene load_steps=9 format=3 uid="uid://cvo7bwaenr3ag"]
+
+[ext_resource type="Texture2D" uid="uid://dvbcg50kj7ioh" path="res://drawings/StickFigure.png" id="1_7uhiy"]
+[ext_resource type="Script" uid="uid://dctjytw02jrjw" path="res://UI/enter_level_dialog.gd" id="1_t8axa"]
+[ext_resource type="Texture2D" uid="uid://b285gii3eudvl" path="res://drawings/village.png" id="2_o7j0p"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e1lbn"]
+atlas = ExtResource("1_7uhiy")
+region = Rect2(1.63448, 64.3896, 32.9336, 32.7313)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2ydvt"]
+atlas = ExtResource("1_7uhiy")
+region = Rect2(28.7057, 96.4527, 32.7673, 32.6009)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bixrm"]
+atlas = ExtResource("1_7uhiy")
+region = Rect2(29.8528, 33.2985, 32.2683, 32.7673)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wybox"]
+atlas = ExtResource("2_o7j0p")
+region = Rect2(16.172, 0.017313, 16.0168, 16.1524)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6t5gs"]
+atlas = ExtResource("2_o7j0p")
+region = Rect2(31.8458, -0.013962, 16.3387, 16.0288)
+
+[node name="EnterLevelDialog" type="CanvasLayer"]
+process_mode = 2
+script = ExtResource("1_t8axa")
+
+[node name="BodyContainer" type="PanelContainer" parent="."]
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -80.0
+offset_right = 106.0
+offset_bottom = 80.0
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="BodyContainer"]
+layout_mode = 2
+
+[node name="Headline" type="Label" parent="BodyContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "LEVEL N"
+
+[node name="ToolsNeededLabel" type="Label" parent="BodyContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Tools Needed"
+
+[node name="ToolsNeededContainer" type="HBoxContainer" parent="BodyContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="BodyContainer/VBoxContainer/ToolsNeededContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_e1lbn")
+
+[node name="TextureRect2" type="TextureRect" parent="BodyContainer/VBoxContainer/ToolsNeededContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_2ydvt")
+
+[node name="TextureRect3" type="TextureRect" parent="BodyContainer/VBoxContainer/ToolsNeededContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_bixrm")
+
+[node name="RewardsLabel" type="Label" parent="BodyContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Rewards"
+
+[node name="RewardContainer" type="HBoxContainer" parent="BodyContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="RewardDollarLabel" type="Label" parent="BodyContainer/VBoxContainer/RewardContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "$"
+
+[node name="RewardLabel" type="Label" parent="BodyContainer/VBoxContainer/RewardContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "XXX"
+
+[node name="ButtonContainer" type="HBoxContainer" parent="BodyContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="ConfirmBut" type="TextureButton" parent="BodyContainer/VBoxContainer/ButtonContainer"]
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_wybox")
+stretch_mode = 5
+
+[node name="CancelBut" type="TextureButton" parent="BodyContainer/VBoxContainer/ButtonContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+texture_normal = SubResource("AtlasTexture_6t5gs")
+stretch_mode = 5
+
+[connection signal="pressed" from="BodyContainer/VBoxContainer/ButtonContainer/ConfirmBut" to="." method="_on_confirm_but_pressed"]
+[connection signal="pressed" from="BodyContainer/VBoxContainer/ButtonContainer/CancelBut" to="." method="_on_cancel_but_pressed"]

@@ -1,11 +1,6 @@
 class_name Ui
 extends Control
 
-signal ui_vacuum_but_pressed
-signal ui_broom_but_pressed
-signal ui_hands_but_pressed
-signal ui_mop_but_pressed
-signal ui_tile_machine_but_pressed
 signal ui_tool_but_pressed(tool_scene: String)
 
 func _ready() -> void:

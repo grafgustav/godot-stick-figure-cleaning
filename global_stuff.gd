@@ -48,8 +48,12 @@ const MOP := "res://Tools/mop.tscn"
 const TILE_MACHINE := "res://Tools/tile_floor_cleaner.tscn"
 
 ## LEVELS
-const LEVELS = {
-	1: "res://Levels/level1.tscn"
+const LEVEL_DATA = {
+	1: {
+		"scene_file": "res://Levels/level1.tscn",
+		"points": 100,
+		"tools_needed": [BROOM, MOP, HANDS]
+	}
 }
 
 ## MISC

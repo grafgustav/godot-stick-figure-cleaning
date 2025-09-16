@@ -25,7 +25,7 @@ region = Rect2(47.84, 167.578, 19.1111, 25.037)
 atlas = ExtResource("2_27fn8")
 region = Rect2(34.6638, 32.9026, 21.697, 31.8637)
 
-[node name="UI" type="Control" groups=["UI"]]
+[node name="GameLevelUI" type="Control" groups=["UI"]]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

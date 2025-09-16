@@ -1,8 +1,6 @@
 class_name Player
 extends CharacterBody2D
 
-signal player_points_updated
-
 var equipped_tool : AbstractTool
 var carried_smudge : AbstractSmudge
 
